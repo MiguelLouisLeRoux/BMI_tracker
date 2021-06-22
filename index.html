@@ -13,13 +13,45 @@
     <title>Venue Capacity Tracker</title>
 </head>
 <body>
-
+    <header class="header"><h1>Venue Capacity Tracker</h1></header>
+    <br>
     <div class="container">
-
-
-
-        <canvas id="theChart">   
-        </canvas>
+        <div class="row">
+            <div class="col-6">
+                <div class="center">
+                    <label class="capacity-amount">Enter maximum capacity of Venue:</label>
+                    <br>
+                    <input class="capacity-input" type="number" placeholder="e.g. 250">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="center">
+                    <label class="lockdown-level">Enter lockdown level:
+                        <br>
+                        <select class="level">
+                            <option>Select</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select> 
+                    </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <div class="chart-sect">
+                <canvas id="theChart"></canvas>
+            </div>
+        </div>
+        <br>
+        <div class="center">
+            <div class="theTable">
+                <h3>List of People Accepted into Venue</h3>
+            </div>
+        </div>
+        <br>
+        <br>
     </div>
     
     <script src="tests/factory.js"></script>

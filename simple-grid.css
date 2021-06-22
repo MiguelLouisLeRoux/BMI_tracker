@@ -16,6 +16,10 @@ body {
   left: 0;
   top: 0;
   font-size: 100%;
+
+  background-image: linear-gradient(to bottom, lightslategray, lightsteelblue);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ROOT FONT STYLES */
@@ -180,6 +184,66 @@ p {
 
 .hidden-sm {
   display: none;
+}
+
+.chart-sect {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 5%;
+}
+
+header {
+  text-align: center;
+  padding: 1em;
+  background-color: #333447;
+  margin-bottom: 3%;
+}
+
+header h1 {
+  color: whitesmoke;
+}
+
+.capacity-amount{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+input {
+  font-size: 1rem;
+  border: solid 0.1em cadetblue;
+  border-radius: 0.4em;
+  outline-color: cadetblue;
+  width: fit-content;
+}
+
+select {
+  font-size: 1.2rem;
+  border: solid 0.1em cadetblue;
+  border-radius: 0.4em;
+  outline-color: cadetblue;
+}
+
+.lockdown-level{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.theTable {
+  margin-top: 7%;
+}
+
+h3 {
+  display: block;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.8em;
+  width: fit-content;
+  border-bottom: solid dodgerblue;
 }
 
 @media only screen and (min-width: 33.75em) {  /* 540px */
