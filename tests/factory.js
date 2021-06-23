@@ -1,7 +1,9 @@
 function factory() {
     let invitationList = [{Name: "Pete", going: 'yes'}, {Name: "Ben", going: 'yes'},{Name: "Charles", going: 'no'},{Name: "Sally", going: 'no'},{Name: "Polly", going: 'yes'},{Name: "Paige", going: 'no'},{Name: "Michael", going: 'no'},{Name: "Amber", going: 'no'},{Name: "Wendy", going: 'yes'},{Name: "Lucile", going: 'yes'},{Name: "Jeanette", going: 'yes'},{Name: "Mercy", going: 'yes'},{Name: "Arnette", going: 'yes'},{Name: "Domenica", going: 'yes'},{Name: "Marlen", going: 'yes'},{Name: "Emilia", going: 'yes'}, {name:'Myra' , going:"yes"}];
     
+    //Lhomlas acceptance list
     let goingList = [];
+
     let vacant = 0;
     let occupied = 0;
     let allowedCap = 0;
