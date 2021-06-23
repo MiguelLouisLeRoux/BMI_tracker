@@ -5,6 +5,7 @@ const limit = document.querySelector(".capLimit");
 const addd = document.querySelector(".add");
 const nameVal = document.querySelector(".nameVal");
 const theError = document.querySelector(".errorr");
+const counter = document.querySelector(".counter");
 
 const factoryLogic = factory();
 
@@ -74,6 +75,7 @@ maximumCap.addEventListener('change', function(){
     } else {
        limit.innerHTML = factoryLogic.setAllowedCap(maximumCap.value);
        vacantVal = factoryLogic.values().allowedCap;
+       
     }
 
     localStorage["maxCap"] = factoryLogic.values().allowedCap;
@@ -82,7 +84,7 @@ maximumCap.addEventListener('change', function(){
 });
 
 addd.addEventListener('click', function(){
-    
+
     if (nameVal.value === "") {
         nameVal.classList.add("crimson");
         nameVal.value = "Please enter name"
@@ -91,9 +93,18 @@ addd.addEventListener('click', function(){
             nameVal.classList.remove("crimson");
         }, 1500);
 
-    } else if (factoryLogic.values().allowedCap === 0) {
+    // } else if (factoryLogic.values().allowedCap === 0) {
+    } else if (factoryLogic.values().allowedCap === undefined) {
 
         theError.innerHTML = factoryLogic.values().error;
+        setTimeout(function(){
+            theError.innerHTML = "";
+        }, 1500);
+        nameVal.value = "";
+
+    } else if (factoryLogic.values().allowedCap === 0) {
+    
+        theError.innerHTML = "Maximum capacity reached";
         setTimeout(function(){
             theError.innerHTML = "";
         }, 1500);

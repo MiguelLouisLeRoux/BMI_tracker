@@ -4,13 +4,17 @@ function factory() {
     let goingList = [];
 
     let occupied = 0;
-    let allowedCap = 0;
+    // let allowedCap = 0;
+    let allowedCap;
+
 
     //Error message
     let error = "Please enter maximum capacity of a venue to register an event";
 
     function setAllowedCap(val){
+        
         let limit = val * 66 / 100;
+
         allowedCap = Math.round(limit);
 
         if (goingList.length != 0) {
@@ -22,8 +26,10 @@ function factory() {
 
     function addToList(name) {
         if (allowedCap != 0){
-            if (/^[A-Za-z]+$/.test(name) || /^[A-Za-z]\s^[A-Za-z]+$/.test(name)){
-                goingList.push(name);
+            let trim = name.trim();
+            let upper = trim.charAt(0).toUpperCase() + trim.slice(1)
+            if (/^[A-Za-z]+$/.test(upper) || /^[A-Za-z]\s^[A-Za-z]+$/.test(upper)){
+                goingList.push(upper);
                 allowedCap--; 
             }    
         }
