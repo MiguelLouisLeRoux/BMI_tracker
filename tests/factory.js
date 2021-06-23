@@ -10,16 +10,24 @@ function factory() {
     let error = "Please enter maximum capacity of a venue to register an event";
 
     function setAllowedCap(val){
-        allowedCap = val/2;
+        let limit = val * 66 / 100;
+        allowedCap = Math.round(limit);
+
+        if (goingList.length != 0) {
+            allowedCap -= goingList.length;
+        }
+
         return allowedCap;
     }
 
     function addToList(name) {
         if (allowedCap != 0){
-            goingList.push(name);
-            allowedCap--;
-            occupied++;
+            if (/^[A-Za-z]+$/.test(name) || /^[A-Za-z]\s^[A-Za-z]+$/.test(name)){
+                goingList.push(name);
+                allowedCap--; 
+            }    
         }
+        occupied = goingList.length;
     }
 
     function resettingLocalStorage(occu, vacant, list) {

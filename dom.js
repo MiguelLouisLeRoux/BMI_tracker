@@ -82,6 +82,7 @@ maximumCap.addEventListener('change', function(){
 });
 
 addd.addEventListener('click', function(){
+    
     if (nameVal.value === "") {
         nameVal.classList.add("crimson");
         nameVal.value = "Please enter name"
@@ -89,12 +90,15 @@ addd.addEventListener('click', function(){
             nameVal.value = "";
             nameVal.classList.remove("crimson");
         }, 1500);
+
     } else if (factoryLogic.values().allowedCap === 0) {
+
         theError.innerHTML = factoryLogic.values().error;
         setTimeout(function(){
             theError.innerHTML = "";
         }, 1500);
         nameVal.value = "";
+
     } else {
         factoryLogic.addToList(nameVal.value);
         
@@ -108,5 +112,3 @@ addd.addEventListener('click', function(){
         location.reload();
     }
 });
-
-
