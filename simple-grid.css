@@ -246,6 +246,54 @@ h3 {
   border-bottom: solid dodgerblue;
 }
 
+.addName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.addNameList {
+  margin-top: 5%;
+}
+
+.add {
+  padding: 0.5em 1.2em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  background-color: dodgerblue;
+  font-weight: bolder;
+  color: whitesmoke;
+  border: none;
+  border-radius: 0.2em;
+}
+
+span {
+  /* display: block; */
+  /* margin: 0 auto; */
+  font-family: Arial, Helvetica, sans-serif;
+  color: #474968;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.crimson {
+  color: crimson;
+}
+
+.errorr {
+  height: 1.3rem;
+  font-size: 1.2rem;
+  color: crimson;
+  font-weight:500
+}
+
+.capLimit {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {
     width: 80%;
