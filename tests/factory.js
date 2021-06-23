@@ -22,6 +22,16 @@ function factory() {
         }
     }
 
+    function resettingLocalStorage(occu, vacant, list) {
+        goingList = list;
+        occu = occupied;
+        allowedCap = vacant;
+    }
+
+    function resetVac(val) {
+        allowedCap = val;
+    }
+
 
     function values(){
         return{
@@ -35,8 +45,7 @@ function factory() {
     return {values,
             setAllowedCap,
             addToList,
-
-            
-
+            resettingLocalStorage,
+            resetVac,
     }
 }

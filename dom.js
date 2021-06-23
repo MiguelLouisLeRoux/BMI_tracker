@@ -8,6 +8,24 @@ const theError = document.querySelector(".errorr");
 
 const factoryLogic = factory();
 
+let occupiedVal = 0;
+let vacantVal = 100;
+
+if (localStorage["theList"] && localStorage["maxCap"] && localStorage["occupied"]) {
+    occupiedVal = Number(localStorage["occupied"]);
+    vacantVal = Number(localStorage["maxCap"]);
+    let theList = JSON.parse(localStorage["theList"]);
+
+    factoryLogic.resettingLocalStorage(occupiedVal, vacantVal, theList);
+    limit.innerHTML = factoryLogic.values().allowedCap;
+}
+
+if (localStorage["maxCap"]) {
+    vacantVal = Number(localStorage["maxCap"]);
+
+    factoryLogic.resetVac(vacantVal);
+    limit.innerHTML = factoryLogic.values().allowedCap;
+}
 
 Chart.defaults.font.size = 20;
 Chart.defaults.font.color = 'black';
@@ -19,7 +37,7 @@ let graph = new Chart (ctr, {
         datasets: [{
             label: '# of Votes',
             fontWeight: 'bold',
-            data: [0, 100],
+            data: [occupiedVal, vacantVal],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 // 'rgba(54, 162, 235, 0.2)',
@@ -55,7 +73,12 @@ maximumCap.addEventListener('change', function(){
         maximumCap.value = ""; 
     } else {
        limit.innerHTML = factoryLogic.setAllowedCap(maximumCap.value);
+       vacantVal = factoryLogic.values().allowedCap;
     }
+
+    localStorage["maxCap"] = factoryLogic.values().allowedCap;
+    location.reload();
+    
 });
 
 addd.addEventListener('click', function(){
@@ -74,10 +97,15 @@ addd.addEventListener('click', function(){
         nameVal.value = "";
     } else {
         factoryLogic.addToList(nameVal.value);
-        // console.log(factoryLogic.values().allowedCap);
+        
         limit.innerHTML = factoryLogic.values().allowedCap;
 
+        localStorage["theList"] = JSON.stringify(factoryLogic.values().goingList);
+        localStorage["maxCap"] = factoryLogic.values().allowedCap;
+        localStorage["occupied"] = factoryLogic.values().occupied;
+
         nameVal.value = "";
+        location.reload();
     }
 });
 
