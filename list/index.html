@@ -6,9 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="simple-grid.css">
     <title>Acceptance List</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script type="text/x-template" class="userTemplate">
+        {{#each name}}
+            <div class='names'>
+                <li><strong>{{this}}</strong><button value="{{this}}" onclick="addName(value)">Remove</button></li>
+            </div>
+        {{/each}}
+    </script>
 </head>
 <body>
-    
-    
+    <div class="center">
+        <div class="theTable">
+            <h1>List of People Accepted into Venue</h1>
+        </div>
+        <div class="acceptedList">
+            <!-- <li></li> -->
+        </div>
+        <div class="removeList">
+            <button class="remove">Remove</button>
+        </div>
+    </div>
+    <script src="./factory.js"></script>
+    <script src="./domList.js"></script>
 </body>
 </html>
