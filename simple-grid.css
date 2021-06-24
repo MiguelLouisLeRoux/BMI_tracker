@@ -284,6 +284,12 @@ h3 {
   border-radius: 0.2em;
 }
 
+.add:hover {
+  transition: 300ms;
+  background-color: seagreen;
+  color: whitesmoke;
+}
+
 span {
   /* display: block; */
   /* margin: 0 auto; */

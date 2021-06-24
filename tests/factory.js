@@ -36,6 +36,20 @@ function factory() {
         occupied = goingList.length;
     }
 
+    function removeName(val) {
+        for (let i = 0; i < goingList.length; i++) {
+            let itt = goingList[i];
+
+            if (val === itt) {
+
+                let index = goingList.indexOf(val);
+                goingList.splice(index, 1);
+                allowedCap++;
+                return goingList;
+            }
+        } 
+    }
+
     function resettingLocalStorage(occu, vacant, list) {
         goingList = list;
         occu = occupied;
@@ -61,5 +75,6 @@ function factory() {
             addToList,
             resettingLocalStorage,
             resetVac,
+            removeName,
     }
 }

@@ -2,6 +2,9 @@ const ctr = document.getElementById("theChart").getContext('2d');
 const nameIn = document.querySelector(".nameVal");
 const theAdd = document.querySelector(".add");
 const errorMes = document.querySelector(".errorr");
+const nameSect = document.querySelector(".names");
+let templateSource = document.querySelector(".userTemplate").innerHTML;
+let userTemplate = Handlebars.compile(templateSource);
 
 const theFactory = factory();
 
@@ -15,6 +18,12 @@ if (localStorage["theList"] && localStorage["maxCap"] && localStorage["occupied"
 
     theFactory.resettingLocalStorage(occ, vac, theListt);
     // limit.innerHTML = factoryLogic.values().allowedCap;
+    let userData = { 
+        names : theFactory.values().goingList
+    };
+    
+    userDataHTML = userTemplate(userData);
+    nameSect.innerHTML = userDataHTML;
 }
 
 if (localStorage["maxCap"]) {
@@ -22,7 +31,21 @@ if (localStorage["maxCap"]) {
 
     theFactory.resetVac(vac);
     // limit.innerHTML = factoryLogic.values().allowedCap;
+    let userData = { 
+        names : theFactory.values().goingList
+    };
+    
+    userDataHTML = userTemplate(userData);
+    nameSect.innerHTML = userDataHTML;
 }
+
+
+let userData = { 
+    names : theFactory.values().goingList
+};
+
+userDataHTML = userTemplate(userData);
+nameSect.innerHTML = userDataHTML;
 
 Chart.defaults.font.size = 20;
 Chart.defaults.font.color = 'black';
@@ -98,5 +121,18 @@ theAdd.addEventListener('click', function(){
 });
 
 function removeBtn(val) {
+    theFactory.removeName(val);
 
+    let userData = { 
+        names : theFactory.values().goingList
+        // names : theFactory.removeName(val)
+
+    };
+    
+    userDataHTML = userTemplate(userData);
+    nameSect.innerHTML = userDataHTML;
+
+    localStorage["theList"] = JSON.stringify(theFactory.values().goingList);
+    localStorage["maxCap"] = theFactory.values().allowedCap;
+    localStorage["occupied"] = theFactory.values().occupied;
 };
