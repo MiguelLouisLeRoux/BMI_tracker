@@ -1,49 +1,41 @@
-var namesListElem = document.querySelector('.acceptedList')
-var cancelElem = document.querySelector('.removeList')
+const ctr = document.getElementById("theChart").getContext('2d');
 
-const TemplateSource = document.querySelector(".userTemplate").innerHTML;
-let template = Handlebars.compile(TemplateSource);
+Chart.defaults.font.size = 20;
+Chart.defaults.font.color = 'black';
 
-
-var namesGoingInstance = Factory();
-
-// var userData = {
-//     name : namesGoingInstance.values().goingList 
-// }
-
-// userDataHTML = template(userData);
-// namesListElem.innerHTML = userDataHTML;
-
-// if(namesGoingInstance.getNameList()){
-//     namesGoingInstance.innerHTML = greetingInstance.getNameList()
-  
-//   }
-// namesListElem.addEventListener('click', function(){
-//     namesListElem.innerHTML = namesGoingInstance.getNameList()
-// })
-
-var getList = namesGoingInstance.getNameList();
-for(let i = 0; i < getList.length; i++){
-    var namesCaptured = getList[i];
-    var nameDiv = document.createElement('div')
-    nameDiv.textContent = namesCaptured;
-    nameDiv.value = namesCaptured;
-    namesListElem.appendChild(nameDiv)
-}
-
-cancelElem.addEventListener('click', function(){
-    var removeList = namesGoingInstance.getNameList();
-for(let i = 0; i < removeList.length; i++){
-    var namesRemoved = removeList[i];
-    var removeName = document.createElement('div')
-    removeName.textContent = namesRemoved;
-    removeName.value = namesRemoved;
-    cancelElem.removeChild(removeName)
-}
-})
-
-
-function addName(value) {
-
-    
-}
+let graph = new Chart (ctr, {
+    type: 'doughnut',
+    data: {
+        labels: ['Occupied', 'Vacant'],
+        datasets: [{
+            label: '# of Votes',
+            fontWeight: 'bold',
+            data: [0, 100],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                // 'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                // 'rgba(75, 192, 192, 0.2)',
+                // 'rgba(153, 102, 255, 0.2)',
+                // 'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                // 'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                // 'rgba(75, 192, 192, 1)',
+                // 'rgba(153, 102, 255, 1)',
+                // 'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 3,
+            
+        }]
+    },
+    options: {
+        scale: {
+            pointLabels :{
+            fontStyle: "bolder",
+            }
+        }
+    }
+});

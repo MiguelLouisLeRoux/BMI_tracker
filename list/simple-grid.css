@@ -1,30 +1,326 @@
-body{
-  text-align: center;
-  background: linear-gradient(-200deg, #746f6b 30%, rgba(0, 0, 0, 0) 100%); 
-}
+/**
+*** SIMPLE GRID
+*** (C) ZACH COLE 2016
+**/
 
-.center{
-  height:500px;
-  max-width: 600px;
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+/* UNIVERSAL */
+
+html,
+body {
+  height: 100%;
   width: 100%;
-  margin: auto;
-  background:#333447;
-  border-radius: 30px;
-}
-.center{
-  filter: blur(0.6px);
-  box-shadow: 
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
 
-  -3px 15px 10px rgb(21, 20, 20),
-  0px 2.5px 5px  rgba(255, 255, 255),
-
-  25px 20px 10px rgb(21, 20, 20),
-
-  -10px 20px 30px rgba(255, 255, 255),
-
-  20px 20px 20px rgba(255, 255, 255);
+  background-image: linear-gradient(to bottom, lightslategray, lightsteelblue);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-h1{
-  margin-top: 30px;
+/* ROOT FONT STYLES */
+
+* {
+  font-family: 'Lato', Helvetica, sans-serif;
+  color: #333447;
+  line-height: 1.5;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-heavy {
+  font-weight: 700;
+}
+
+/* POSITIONING */
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.justify {
+  text-align: justify;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  position: relative;
+  width: 100%;
+}
+
+.row [class^="col"] {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem;
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: 96%;
+}
+
+.col-1-sm {
+  width: 4.33%;
+}
+
+.col-2-sm {
+  width: 12.66%;
+}
+
+.col-3-sm {
+  width: 21%;
+}
+
+.col-4-sm {
+  width: 29.33%;
+}
+
+.col-5-sm {
+  width: 37.66%;
+}
+
+.col-6-sm {
+  width: 46%;
+}
+
+.col-7-sm {
+  width: 54.33%;
+}
+
+.col-8-sm {
+  width: 62.66%;
+}
+
+.col-9-sm {
+  width: 71%;
+}
+
+.col-10-sm {
+  width: 79.33%;
+}
+
+.col-11-sm {
+  width: 87.66%;
+}
+
+.col-12-sm {
+  width: 96%;
+}
+
+.row::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.hidden-sm {
+  display: none;
+}
+
+header {
+  text-align: center;
+  padding: 1em;
+  background-color: #333447;
+  margin-bottom: 3%;
+}
+
+header h1 {
+  color: whitesmoke;
+}
+input {
+  font-size: 1rem;
+  border: solid 0.1em cadetblue;
+  border-radius: 0.4em;
+  outline-color: cadetblue;
+  width: fit-content;
+}
+
+.addName {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.add {
+  padding: 0.5em 1.2em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  background-color: dodgerblue;
+  font-weight: bolder;
+  color: whitesmoke;
+  border: none;
+  border-radius: 0.2em;
+}
+
+.add:hover {
+  background-color: seagreen;
+  color: whitesmoke;
+}
+
+.inputArea {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  border-bottom: solid 0.1em seagreen;
+}
+
+/* #border {
+  border-right: solid 0.1em seagreen;
+} */
+
+span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.list-title {
+  display: block;
+  margin: 0 auto;
+  width: 8em;
+  border-bottom: solid 0.1em seagreen;;
+}
+
+.chart-sect {
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  margin-top: 5%;
+}
+
+@media only screen and (min-width: 33.75em) {  /* 540px */
+  .container {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 45em) {  /* 720px */
+  .col-1 {
+    width: 4.33%;
+  }
+
+  .col-2 {
+    width: 12.66%;
+  }
+
+  .col-3 {
+    width: 21%;
+  }
+
+  .col-4 {
+    width: 29.33%;
+  }
+
+  .col-5 {
+    width: 37.66%;
+  }
+
+  .col-6 {
+    width: 46%;
+  }
+
+  .col-7 {
+    width: 54.33%;
+  }
+
+  .col-8 {
+    width: 62.66%;
+  }
+
+  .col-9 {
+    width: 71%;
+  }
+
+  .col-10 {
+    width: 79.33%;
+  }
+
+  .col-11 {
+    width: 87.66%;
+  }
+
+  .col-12 {
+    width: 96%;
+  }
+
+  .hidden-sm {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 60em) { /* 960px */
+  .container {
+    width: 75%;
+    max-width: 60rem;
+  }
 }
