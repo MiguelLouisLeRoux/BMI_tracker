@@ -1,7 +1,9 @@
 function factory() {
     
-    //Lhomlas acceptance list
     let goingList = [];
+
+    //Lhomlas removed list
+    let cancelation = [];
 
     let occupied = 0;
     // let allowedCap = 0;
@@ -45,6 +47,8 @@ function factory() {
                 let index = goingList.indexOf(val);
                 goingList.splice(index, 1);
                 allowedCap++;
+                occupied = goingList.length;
+                cancelation.push(itt);
                 return goingList;
             }
         } 

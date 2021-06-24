@@ -6,8 +6,18 @@ const addd = document.querySelector(".add");
 const nameVal = document.querySelector(".nameVal");
 const theError = document.querySelector(".errorr");
 const counter = document.querySelector(".counter");
+const going = document.querySelector(".theListt");
+let templateSource = document.querySelector(".userTemplate").innerHTML;
+let userTemplate = Handlebars.compile(templateSource);
 
 const factoryLogic = factory();
+
+let userData = { 
+    names : factoryLogic.values().goingList
+};
+
+userDataHTML = userTemplate(userData);
+going.innerHTML = userDataHTML;
 
 let occupiedVal = 0;
 let vacantVal = 100;
@@ -19,6 +29,13 @@ if (localStorage["theList"] && localStorage["maxCap"] && localStorage["occupied"
 
     factoryLogic.resettingLocalStorage(occupiedVal, vacantVal, theList);
     limit.innerHTML = factoryLogic.values().allowedCap;
+
+    let userData = { 
+        names : factoryLogic.values().goingList
+    };
+    
+    userDataHTML = userTemplate(userData);
+    going.innerHTML = userDataHTML;
 }
 
 if (localStorage["maxCap"]) {
@@ -26,6 +43,13 @@ if (localStorage["maxCap"]) {
 
     factoryLogic.resetVac(vacantVal);
     limit.innerHTML = factoryLogic.values().allowedCap;
+
+    let userData = { 
+        names : factoryLogic.values().goingList
+    };
+    
+    userDataHTML = userTemplate(userData);
+    going.innerHTML = userDataHTML;
 }
 
 Chart.defaults.font.size = 20;

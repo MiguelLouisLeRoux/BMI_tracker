@@ -8,7 +8,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/chart.min.js" integrity="sha512-VCHVc5miKoln972iJPvkQrUYYq7XpxXzvqNfiul1H4aZDwGBGC0lq373KNleaB2LpnC2a/iNfE5zoRYmB4TRDQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script type="text/x-template" class="userTemplate">
-        
+        {{#each names}}
+        <div class="theName">
+                <li class="theN"><strong>{{this}}</strong></li>
+                <br>
+            </div>
+        </div>
+        {{/each}}
     </script>
     <title>Venue Capacity Tracker</title>
 </head>
@@ -46,6 +52,8 @@
             </div>
         </div>
         <br>
+        <br>
+        <br>
         <div class="center">
             
             <div class="addNameList">
@@ -59,8 +67,16 @@
         </div>
         <br>
         <br>
+        <br>
         <div class="center">
-            <a href="list/index.html">Veiw those accepted</a>
+            <div class="theList">
+                <span class="attendance">Attendance List</span>
+                <br>
+                <br>
+                <div class="theListt">
+
+                </div>
+            </div>
         </div>
         <br>
         <br>

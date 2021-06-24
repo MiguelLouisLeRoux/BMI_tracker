@@ -17,7 +17,7 @@ if (localStorage["theList"] && localStorage["maxCap"] && localStorage["occupied"
     let theListt = JSON.parse(localStorage["theList"]);
 
     theFactory.resettingLocalStorage(occ, vac, theListt);
-    // limit.innerHTML = factoryLogic.values().allowedCap;
+    
     let userData = { 
         names : theFactory.values().goingList
     };
@@ -30,7 +30,7 @@ if (localStorage["maxCap"]) {
     vac = Number(localStorage["maxCap"]);
 
     theFactory.resetVac(vac);
-    // limit.innerHTML = factoryLogic.values().allowedCap;
+
     let userData = { 
         names : theFactory.values().goingList
     };
@@ -91,7 +91,6 @@ theAdd.addEventListener('click', function(){
 
     } else if (theFactory.values().allowedCap === undefined) {
 
-        // theError.innerHTML = factoryLogic.values().error;
         errorMes.innerHTML = "An event has not been set yet.";
         setTimeout(function(){
             errorMes.innerHTML = "";
@@ -108,8 +107,6 @@ theAdd.addEventListener('click', function(){
 
     } else {
         theFactory.addToList(nameIn.value);
-        
-        // limit.innerHTML = theFactory.values().allowedCap;
 
         localStorage["theList"] = JSON.stringify(theFactory.values().goingList);
         localStorage["maxCap"] = theFactory.values().allowedCap;
@@ -125,8 +122,6 @@ function removeBtn(val) {
 
     let userData = { 
         names : theFactory.values().goingList
-        // names : theFactory.removeName(val)
-
     };
     
     userDataHTML = userTemplate(userData);
@@ -135,4 +130,6 @@ function removeBtn(val) {
     localStorage["theList"] = JSON.stringify(theFactory.values().goingList);
     localStorage["maxCap"] = theFactory.values().allowedCap;
     localStorage["occupied"] = theFactory.values().occupied;
+
+    location.reload();
 };
