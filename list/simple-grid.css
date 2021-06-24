@@ -258,6 +258,17 @@ span {
   margin-top: 5%;
 }
 
+.crimson {
+  color: crimson;
+}
+
+.errorr {
+  height: 1.3rem;
+  font-size: 1.2rem;
+  color: crimson;
+  font-weight:500
+}
+
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {
     width: 80%;
