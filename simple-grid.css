@@ -366,6 +366,14 @@ span {
   width: 20rem;
 }
 
+hr {
+  background-color: seagreen;
+  width: 22rem;
+  height: 0.1px;
+  color: seagreen;
+
+}
+
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {
     width: 80%;
