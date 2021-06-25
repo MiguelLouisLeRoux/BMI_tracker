@@ -13,9 +13,9 @@ function factory() {
     //Error message
     let error = "Please enter maximum capacity of a venue to register an event";
 
-    function setAllowedCap(val){
+    function setAllowedCap(val, perc){
         
-        let limit = val * 66 / 100;
+        let limit = val * perc / 100;
 
         allowedCap = Math.round(limit);
 

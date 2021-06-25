@@ -200,6 +200,14 @@ header {
   margin-bottom: 3%;
 }
 
+.input-sect {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  border-bottom: solid 0.1em seagreen;
+}
+
+
 .theN {
   margin-bottom: 0.3em;
   font-size: 1.2rem;
@@ -210,7 +218,17 @@ header h1 {
   color: whitesmoke;
 }
 
+.theerror {
+  height: 1.2rem;
+}
+
 .capacity-amount{
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.perc-amount {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
@@ -276,6 +294,24 @@ h3 {
 
 .addNameList {
   margin-top: 5%;
+}
+
+.calc {
+  padding: 0.5em 1.2em;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  background-color: dodgerblue;
+  font-weight: bolder;
+  color: whitesmoke;
+  border: none;
+  border-radius: 0.2em;
+}
+
+.calc:hover {
+  transition: 300ms;
+  background-color: seagreen;
+  color: whitesmoke;
 }
 
 .add {

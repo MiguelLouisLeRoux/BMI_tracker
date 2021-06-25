@@ -7,6 +7,9 @@ const nameVal = document.querySelector(".nameVal");
 const theError = document.querySelector(".errorr");
 const counter = document.querySelector(".counter");
 const going = document.querySelector(".theListt");
+const perc = document.querySelector(".perc-input");
+const calc = document.querySelector(".calc");
+const er = document.querySelector(".dError");
 let templateSource = document.querySelector(".userTemplate").innerHTML;
 let userTemplate = Handlebars.compile(templateSource);
 
@@ -65,19 +68,11 @@ let graph = new Chart (ctr, {
             data: [occupiedVal, vacantVal],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
-                // 'rgba(54, 162, 235, 0.2)',
                 'rgba(255, 206, 86, 0.2)',
-                // 'rgba(75, 192, 192, 0.2)',
-                // 'rgba(153, 102, 255, 0.2)',
-                // 'rgba(255, 159, 64, 0.2)'
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
-                // 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
-                // 'rgba(75, 192, 192, 1)',
-                // 'rgba(153, 102, 255, 1)',
-                // 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 3,
             
@@ -92,12 +87,40 @@ let graph = new Chart (ctr, {
     }
 });
 
-maximumCap.addEventListener('change', function(){
+calc.addEventListener('click', function(){
     
-    if (maximumCap.value < 10) {
-        maximumCap.value = ""; 
+    if (maximumCap.value == "") {
+
+        maximumCap.value = "Enter a value";
+        maximumCap.classList.add("crimson");
+        setTimeout(function(){
+            maximumCap.value = "";
+            maximumCap.classList.remove("crimson");
+        }, 1500);
+        return
+    } 
+    if (perc.value == "") {
+
+        perc.value = "Enter a value";
+        perc.classList.add("crimson");
+        setTimeout(function(){
+            perc.value = "";
+            perc.classList.remove("crimson");
+        }, 1500);
+        return
+    } 
+    if (maximumCap.value == "" && perc.value == "") {
+
+        er.innerHTML = "Enter values bellow";
+        er.classList.add("crimson");
+        setTimeout(function(){
+            er.innerHTML = "";
+            er.classList.remove("crimson");
+        }, 1500);
+        return
     } else {
-       limit.innerHTML = factoryLogic.setAllowedCap(maximumCap.value);
+
+       limit.innerHTML = factoryLogic.setAllowedCap(maximumCap.value, perc.value);
        vacantVal = factoryLogic.values().allowedCap;
        
     }
