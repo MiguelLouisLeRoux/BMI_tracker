@@ -10,6 +10,7 @@ const going = document.querySelector(".theListt");
 const perc = document.querySelector(".perc-input");
 const calc = document.querySelector(".calc");
 const er = document.querySelector(".dError");
+const update = document.querySelector(".update");
 let templateSource = document.querySelector(".userTemplate").innerHTML;
 let userTemplate = Handlebars.compile(templateSource);
 
@@ -170,3 +171,7 @@ addd.addEventListener('click', function(){
         location.reload();
     }
 });
+
+update.addEventListener("click", function(){
+    location.reload();
+})

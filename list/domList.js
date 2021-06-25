@@ -3,6 +3,7 @@ const nameIn = document.querySelector(".nameVal");
 const theAdd = document.querySelector(".add");
 const errorMes = document.querySelector(".errorr");
 const nameSect = document.querySelector(".names");
+const update = document.querySelector(".update");
 let templateSource = document.querySelector(".userTemplate").innerHTML;
 let userTemplate = Handlebars.compile(templateSource);
 
@@ -133,3 +134,7 @@ function removeBtn(val) {
 
     location.reload();
 };
+
+update.addEventListener("click", function(){
+    location.reload();
+})
