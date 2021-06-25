@@ -375,7 +375,7 @@ hr {
 }
 
 .update {
-  float: left;
+  display: block;
   margin-left: 3%;
   padding: 0.5em 1.2em;
   font-weight: bold;
